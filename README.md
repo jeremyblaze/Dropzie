@@ -12,6 +12,10 @@ _See index.html for demos and example usage._
 
 ### To do...
 
+- [ ] Change event not firing
+- [ ] Callback
 - [ ] Focus menu with tab key
 - [ ] Validation
 - [ ] Field style (have an option to make it look like a field with a dropdown instead of a menu)
+- [ ] Need a way to destroy the menu
+- [ ] Option groups
