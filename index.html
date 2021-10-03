@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Dropzie - jQuery Dropdown Select Menu</title>
+    <style type="text/css">
+    
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: -apple-system, helvetica, arial, sans-serif;
+        }
+        
+        h1 {
+            font-size: 38px;
+            line-height: 48px;
+        }
+        
+        h2 {
+            font-size: 24px;
+            line-height: 34px;
+            font-weight: normal;
+            color: #999;
+        }
+        
+        hr {
+            margin: 40px 0;
+            border: 0;
+            border-top: 1px solid #eee;
+        }
+        
+        .main {
+            padding: 30px;
+            margin: 0 auto;
+            max-width: 720px;
+        }
+        
+        h3 {
+            margin-bottom: 20px;
+            display: block;
+        }
+    
+    </style>
+</head>
+<body>
+    
+    <div class="main">
+        
+        <h1>Dropzie</h1>
+        <h2>A flexible dropdown select menu that works just as you'd expect</h2>
+        
+        <hr />
+        
+        <h3>Single select</h3>
+        <select class="myDropzie1">
+            <option>Select...</option>
+            <option value="please-please-me">Please Please Me</option>
+            <option value="with-the-beatles">With The Beatles</option>
+            <option value="a-hard-days-night">A Hard Day’s Night</option>
+            <option value="beatles-for-sale">Beatles For Sale</option>
+            <option value="help">Help!</option>
+            <option value="rubber-soul">Rubber Soul</option>
+            <option value="revolver">Revolver</option>
+            <option value="sgt-pepper">Sgt Pepper’s Lonely Hearts Club Band</option>
+            <option value="white-album">The Beatles (White Album)</option>
+            <option value="yellow-submarine">Yellow Submarine</option>
+            <option value="abbey-road">Abbey Road</option>
+            <option value="let-it-be">Let It Be</option>
+        </select>
+        
+        <hr />
+        
+        <h3>Multi select</h3>
+        <select class="myDropzie2" multiple>
+            <option>Select...</option>
+            <option value="please-please-me">Please Please Me</option>
+            <option value="with-the-beatles">With The Beatles</option>
+            <option value="a-hard-days-night">A Hard Day’s Night</option>
+            <option value="beatles-for-sale">Beatles For Sale</option>
+            <option value="help">Help!</option>
+            <option value="rubber-soul">Rubber Soul</option>
+            <option value="revolver">Revolver</option>
+            <option value="sgt-pepper">Sgt Pepper’s Lonely Hearts Club Band</option>
+            <option value="white-album">The Beatles (White Album)</option>
+            <option value="yellow-submarine">Yellow Submarine</option>
+            <option value="abbey-road">Abbey Road</option>
+            <option value="let-it-be">Let It Be</option>
+        </select>
+        
+        <hr />
+        
+        <h3>Multi select with default values</h3>
+        <select class="myDropzie3" multiple>
+            <option>Select...</option>
+            <option value="please-please-me">Please Please Me</option>
+            <option value="with-the-beatles">With The Beatles</option>
+            <option value="a-hard-days-night" selected>A Hard Day’s Night</option>
+            <option value="beatles-for-sale" selected>Beatles For Sale</option>
+            <option value="help">Help!</option>
+            <option value="rubber-soul">Rubber Soul</option>
+            <option value="revolver">Revolver</option>
+            <option value="sgt-pepper" selected>Sgt Pepper’s Lonely Hearts Club Band</option>
+            <option value="white-album">The Beatles (White Album)</option>
+            <option value="yellow-submarine">Yellow Submarine</option>
+            <option value="abbey-road">Abbey Road</option>
+            <option value="let-it-be">Let It Be</option>
+        </select>
+        
+        <hr />
+        
+        <h3>Multi select with default values &amp HTML labels</h3>
+        <select class="myDropzie4" multiple>
+            <option>Select...</option>
+            <option value="please-please-me" data-html='<img src="user.svg" style="width:16px;margin-right:8px;" /> Please Please Me'>Please Please Me</option>
+            <option value="with-the-beatles" data-html='<img src="user.svg" style="width:16px;margin-right:8px;" /> With The Beatles'>With The Beatles</option>
+            <option value="a-hard-days-night" data-html='<img src="user.svg" style="width:16px;margin-right:8px;" /> A Hard Day&#39;s Night' selected>A Hard Day’s Night</option>
+            <option value="beatles-for-sale" data-html='<img src="user.svg" style="width:16px;margin-right:8px;" /> Beatles For Sale' selected>Beatles For Sale</option>
+            <option value="help" data-html='<img src="user.svg" style="width:16px;margin-right:8px;" /> Help!'>Help!</option>
+            <option value="rubber-soul" data-html='<img src="user.svg" style="width:16px;margin-right:8px;" /> Rubber Soul'>Rubber Soul</option>
+            <option value="revolver" data-html='<img src="user.svg" style="width:16px;margin-right:8px;" /> Revolver'>Revolver</option>
+            <option value="sgt-pepper" data-html='<img src="user.svg" style="width:16px;margin-right:8px;" /> Sgt Pepper&#39;s Lonely Hearts Club Band' selected>Sgt Pepper’s Lonely Hearts Club Band</option>
+            <option value="white-album" data-html='<img src="user.svg" style="width:16px;margin-right:8px;" /> The Beatles (White Album)'>The Beatles (White Album)</option>
+            <option value="yellow-submarine" data-html='<img src="user.svg" style="width:16px;margin-right:8px;" /> Yellow Submarine'>Yellow Submarine</option>
+            <option value="abbey-road" data-html='<img src="user.svg" style="width:16px;margin-right:8px;" /> Abbey Road'>Abbey Road</option>
+            <option value="let-it-be" data-html='<img src="user.svg" style="width:16px;margin-right:8px;" /> Let It Be'>Let It Be</option>
+        </select>
+        
+        <hr />
+        
+        <a href="#">See more on GitHub</a> &bull; Made by <a href="https://twitter.com/mrjeremyblaze" target="_blank">Jeremy Blaze</a>
+        
+    </div>
+    
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="jquery.dropzie.css" />
+    <script type="text/javascript" src="jquery.dropzie.js"></script>
+    
+    <script type="text/javascript">
+    
+        $(document).ready(function(){
+            $('.myDropzie1').dropzie();
+            $('.myDropzie2').dropzie();
+            $('.myDropzie3').dropzie();
+            $('.myDropzie4').dropzie();
+        });
+    
+    </script>
+    
+</body>
+</html>

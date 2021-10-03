@@ -1,0 +1,121 @@
+.dropzie {
+    position: relative;
+    font-size: 14px;
+    line-height: 16px;
+    outline: none;
+}
+
+.dropzieToggle {
+    font: inherit;
+    -webkit-appearance: none;
+    outline: none;
+    color: inherit;
+    border: 0;
+    width: 100%;
+    text-align: left;
+    border: 1px solid #eee;
+    box-sizing: border-box;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.03);
+    border-radius: 8px;
+    background: #fff;
+    padding: 8px 14px;
+    padding-right: 35px;
+    cursor: pointer;
+}
+
+    .dropzieToggle:hover,
+    .dropzie.active .dropzieToggle,
+    .dropzieToggle:focus {
+        border-color: #ddd;
+    }
+    
+    .dropzieToggle:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        margin-top: -8px;
+        width: 16px;
+        height: 16px;
+        background-image: url('data:image/svg+xml,<svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+.dropzieMenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin-top: 5px;
+    z-index: 10;
+    border: 1px solid #eee;
+    box-sizing: border-box;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.03);
+    border-radius: 8px;
+    background: #fff;
+    overflow: hidden;
+    
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.2s;
+}
+
+    .dropzie.active .dropzieMenu {
+        opacity: 1;
+        pointer-events: all;
+    }
+    
+.dropzieSearch {
+    font: inherit;
+    border: 0;
+    outline: none;
+    -webkit-appearance: none;
+    padding: 8px 14px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.dropzieOption {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 8px 14px;
+    border-top: 1px solid #eee;
+    position: relative;
+}
+
+    /* hover state */
+
+        .dropzieOption:hover,
+        .dropzieOption.hov {
+            background: #18a0fb;
+            color: #fff;
+        }
+    
+    /* selected state */
+        
+        .dropzieOption:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            margin-top: -8px;
+            width: 16px;
+            height: 16px;
+            background-image: url('data:image/svg+xml,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 4L5.9375 11.5625L2.5 8.125" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+            display: none;
+        }
+            
+        .dropzieOption:hover:after,
+        .dropzieOption.hov:after {
+            background-image: url('data:image/svg+xml,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 4L5.9375 11.5625L2.5 8.125" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+        }
+    
+        .dropzieOption[data-selected="true"] {
+            font-weight: 500;
+        }
+        
+        .dropzieOption[data-selected="true"]:after {
+            display: block;
+        }
