@@ -1,5 +1,7 @@
 # Dropzie
 
+**[See a demo](https://jeremyblaze.github.io/Dropzie/)**
+
 A simple jQuery dropdown select menu that behaves how you'd expect.
 
 - It runs automatically based on a native select menu
