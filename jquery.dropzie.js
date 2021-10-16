@@ -162,7 +162,7 @@ $.fn.dropzie = function(settingsOverrides){
                         if ( $(firstOpt).attr('data-html') ) {
                             var label = $(firstOpt).attr('data-html');
                         } else {
-                            var label = $(firstOpt).val();
+                            var label = $(firstOpt).html();
                         }
                     }
                     $(dr).find('.dropzieToggle').html(label);
