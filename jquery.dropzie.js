@@ -155,7 +155,16 @@ $.fn.dropzie = function(settingsOverrides){
                            label = label + $(this).attr('data-label') + ', ';
                        }
                     });
-                    var label = label.slice(0, -2);
+                    if ( label ) {
+                        var label = label.slice(0, -2);
+                    } else {
+                        var firstOpt = $(rootMenu).find('option').first();
+                        if ( $(firstOpt).attr('data-html') ) {
+                            var label = $(firstOpt).attr('data-html');
+                        } else {
+                            var label = $(firstOpt).val();
+                        }
+                    }
                     $(dr).find('.dropzieToggle').html(label);
                 
                 // update root menu
