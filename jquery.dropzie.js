@@ -14,6 +14,8 @@ $.fn.dropzie = function(settingsOverrides){
        
        var multiSelect = false;
        if ( $(rootMenu).attr('multiple') ) multiSelect = true;
+       
+       var callback = settings.change;
            
     // basic setup
 
@@ -191,6 +193,12 @@ $.fn.dropzie = function(settingsOverrides){
                         var val = $(this).attr('data-value');
                         $(rootMenu).find('option[value="'+val+'"]').prop('selected', 'selected');
                     });
+                    
+                // callback
+                
+                    if ($.isFunction(callback)) {
+                        callback.call();
+                    }
                 
             });
         
