@@ -6,7 +6,8 @@ $.fn.dropzie = function(settingsOverrides){
         var settings = $.extend({
             // this is the list of all available options and their defaults
             'search': true,
-            'hideFirstOptionFromList': true // use this if your first option is 'Select...' or similar
+            'hideFirstOptionFromList': true, // use this if your first option is 'Select...' or similar
+            'customToggle': null // css selector for a custom trigger/button you'd like to use to open the menu – if set the standard trigger will be hidden
        }, settingsOverrides);
        
        var rootMenu = $(this);
@@ -48,7 +49,12 @@ $.fn.dropzie = function(settingsOverrides){
         var label = label.slice(0, -2);
         
         var dr = $('<div class="dropzie" tabindex="0"></div>');
-        $(dr).append('<button class="dropzieToggle">'+label+'</button>');
+        
+        if ( settings.customToggle ) {
+            $(dr).append('<button class="dropzieToggle" style="display:none;">'+label+'</button>');
+        } else {
+            $(dr).append('<button class="dropzieToggle">'+label+'</button>');
+        }
 
         var drList = $('<div class="dropzieList"></div>');
         $.each(options, function(i, opt){
@@ -118,10 +124,18 @@ $.fn.dropzie = function(settingsOverrides){
                     dropzieOpen();
                 }
             });
+            $(settings.customToggle).click(function(e){
+                e.preventDefault();
+                if ( $(dr).hasClass('active') ) {
+                    dropzieClose();
+                } else {
+                    dropzieOpen();
+                }
+            });
             
             // close if user clicks outside dropdown
             $(document).click(function(e){
-                if ( !$(e.target).parents('.dropzie').length ) {
+                if ( !$(e.target).parents('.dropzie').length && $(e.target) && !$(e.target).parents(settings.customToggle) ) {
                     dropzieClose();
                 }
             });

@@ -5,6 +5,10 @@
     outline: none;
 }
 
+.customDropzieToggle {
+    position: relative;
+}
+
 .dropzieToggle {
     font: inherit;
     -webkit-appearance: none;
