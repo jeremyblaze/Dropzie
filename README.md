@@ -12,7 +12,7 @@ _See index.html for demos and example usage._
 
 ### To do...
 
-- [ ] Change event not firing
+- [x] Change event not firing
 - [ ] Callback
 - [ ] Focus menu with tab key
 - [ ] Validation
