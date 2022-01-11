@@ -191,8 +191,6 @@ $.fn.dropzie = function(settingsOverrides){
                         var val = $(this).attr('data-value');
                         $(rootMenu).find('option[value="'+val+'"]').prop('selected', 'selected');
                     });
-                    
-                    $(rootMenu).trigger('change');
                 
             });
         
