@@ -130,7 +130,7 @@
         
         <hr />
         
-        <h3>Custom toggle</h3>
+        <h3>Custom toggle &amp; callback after change</h3>
         <a class="myCustomToggle" href="#">Click this to launch the menu</a>
         <select class="myDropzie5">
             <option>Select...</option>
@@ -167,7 +167,10 @@
             $('.myDropzie3').dropzie();
             $('.myDropzie4').dropzie();
             $('.myDropzie5').dropzie({
-                customToggle: $('.myCustomToggle')
+                customToggle: $('.myCustomToggle'),
+                change: function() {
+                    alert('Changed!');
+                }
             });
         });
     
