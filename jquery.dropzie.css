@@ -12,6 +12,7 @@
 .dropzieToggle {
     font: inherit;
     -webkit-appearance: none;
+    appearance: none;
     outline: none;
     color: inherit;
     border: 0;
@@ -46,6 +47,43 @@
         background-position: center;
     }
 
+.dropzieTagMode {
+    padding-top: 4px;
+    padding-left: 4px;
+    padding-bottom: 4px;
+    display: flex;
+    row-gap: 4px;
+    column-gap: 4px;
+    flex-wrap: wrap;
+}
+
+    .dropzieTag {
+        background: #ddd;
+        padding: 4px 8px;
+        padding-right: 25px;
+        display: inline-block;
+        border-radius: 5px;
+        position: relative;
+    }
+
+    .dropzieTag span {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: 3px;
+        margin-top: -10px;
+        width: 20px;
+        height: 20px;
+        background-image: url('data:image/svg+xml,<svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.46445 0.0502625L0.0502319 1.46448L3.58577 5.00001L0.0502319 8.53554L1.46445 9.94976L4.99998 6.41422L8.53551 9.94976L9.94973 8.53554L6.41419 5.00001L9.94973 1.46448L8.53551 0.0502625L4.99998 3.5858L1.46445 0.0502625Z" fill="black"/></svg>');
+        background-repeat: no-repeat;
+        background-position: center;
+        opacity: 0.5;
+    }
+
+    .dropzieTag span:hover {
+        opacity: 1;
+    }
+
 .dropzieMenu {
     position: absolute;
     top: 100%;
@@ -75,6 +113,7 @@
     border: 0;
     outline: none;
     -webkit-appearance: none;
+    appearance: none;
     padding: 8px 14px;
     width: 100%;
     box-sizing: border-box;

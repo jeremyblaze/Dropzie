@@ -51,6 +51,9 @@
         
         <h1>Dropzie</h1>
         <h2>A flexible dropdown select menu that works just as you'd expect</h2>
+        <br />
+        
+        <a href="https://github.com/jeremyblaze/Dropzie">Fork on GitHub</a> &bull; Made by <a href="https://twitter.com/mrjeremyblaze" target="_blank">Jeremy Blaze</a>
         
         <hr />
         
@@ -130,6 +133,25 @@
         
         <hr />
         
+        <h3>Tag mode</h3>
+        <select class="myDropzie6" multiple>
+            <option>Select...</option>
+            <option value="please-please-me">Please Please Me</option>
+            <option value="with-the-beatles">With The Beatles</option>
+            <option value="a-hard-days-night">A Hard Day’s Night</option>
+            <option value="beatles-for-sale" selected>Beatles For Sale</option>
+            <option value="help">Help!</option>
+            <option value="rubber-soul">Rubber Soul</option>
+            <option value="revolver">Revolver</option>
+            <option value="sgt-pepper" selected>Sgt Pepper’s Lonely Hearts Club Band</option>
+            <option value="white-album">The Beatles (White Album)</option>
+            <option value="yellow-submarine">Yellow Submarine</option>
+            <option value="abbey-road">Abbey Road</option>
+            <option value="let-it-be">Let It Be</option>
+        </select>
+        
+        <hr />
+        
         <h3>Custom toggle &amp; callback after change</h3>
         <a class="myCustomToggle" href="#">Click this to launch the menu</a>
         <select class="myDropzie5">
@@ -147,10 +169,6 @@
             <option value="abbey-road">Abbey Road</option>
             <option value="let-it-be">Let It Be</option>
         </select>
-        
-        <hr />
-        
-        <a href="https://github.com/jeremyblaze/Dropzie">See more on GitHub</a> &bull; Made by <a href="https://twitter.com/mrjeremyblaze" target="_blank">Jeremy Blaze</a>
         
     </div>
     
@@ -171,6 +189,9 @@
                 change: function() {
                     alert('Changed!');
                 }
+            });
+            $('.myDropzie6').dropzie({
+                tagMode: true
             });
         });
     

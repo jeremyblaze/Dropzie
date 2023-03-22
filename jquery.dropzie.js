@@ -6,6 +6,7 @@ $.fn.dropzie = function(settingsOverrides){
         var settings = $.extend({
             // this is the list of all available options and their defaults
             'search': true,
+            'tagMode': false, // shows the selected options in the toggle as tags - custom toggles not supported
             'hideFirstOptionFromList': true, // use this if your first option is 'Select...' or similar
             'customToggle': null // css selector for a custom trigger/button you'd like to use to open the menu – if set the standard trigger will be hidden
        }, settingsOverrides);
@@ -40,19 +41,26 @@ $.fn.dropzie = function(settingsOverrides){
         });
 
         // get currently selected options and create label
+        
+        var dr = $('<div class="dropzie" tabindex="0"></div>');
+
         var label = '';
         var selected = [];
         $.each(options, function(i, opt){
            if ( opt['selected'] == true ) {
-               label = label + opt['label'] + ', ';
-               selected.push(opt);
+                if ( !settings.tagMode ) {
+                    label = label + opt['label'] + ', ';
+                } else {
+                    label = label + '<a class="dropzieTag" data-value="' + opt['value'] + '"><span></span>' + opt['label'] + '</a>';
+                }
+                selected.push(opt);
            }
         });
-        var label = label.slice(0, -2);
+        if ( !settings.tagMode ) var label = label.slice(0, -2);
         
-        var dr = $('<div class="dropzie" tabindex="0"></div>');
-        
-        if ( settings.customToggle ) {
+        if ( settings.tagMode ) {
+            $(dr).append('<div class="dropzieToggle dropzieTagMode">'+label+'</div>');
+        } else if ( settings.customToggle ) {
             $(dr).append('<button class="dropzieToggle" style="display:none;">'+label+'</button>');
         } else {
             $(dr).append('<button class="dropzieToggle">'+label+'</button>');
@@ -144,14 +152,16 @@ $.fn.dropzie = function(settingsOverrides){
         
         // select/deselect options
         
-            $(dr).find('.dropzieOption').click(function(){
+            $(dr).find('.dropzieOption, .dropzieTag span').click(function(){
                 
                 if ( multiSelect == false ) {
                     // when in single-select mode, you cannot deselect the selected item
                     $(dr).find('.dropzieOption[data-selected="true"]').attr('data-selected', 'false');
                 }
                 
-                if ( $(this).attr('data-selected') == 'true' ) {
+                if ( $(this).parent('.dropzieTag').length !== 0 ) {
+                    $(dr).find('.dropzieOption[data-value="'+$(this).parent('.dropzieTag').attr('data-value')+'"]').attr('data-selected', 'false');
+                } else if ( $(this).attr('data-selected') == 'true' ) {
                     $(this).attr('data-selected', 'false');
                 } else {
                     $(this).attr('data-selected', 'true');
@@ -168,11 +178,15 @@ $.fn.dropzie = function(settingsOverrides){
                     var selected = [];
                     $(dr).find('.dropzieOption[data-selected="true"]').each(function(){
                        if ( $(this).attr('data-selected') == 'true' ) {
-                           label = label + $(this).attr('data-label') + ', ';
+                           if ( !settings.tagMode ) {
+                               label = label + $(this).attr('data-label') + ', ';
+                           } else {
+                               label = label + '<a class="dropzieTag" data-value="' + $(this).attr('data-value') + '"><span></span>' + $(this).attr('data-label') + '</a>';
+                           }
                        }
                     });
                     if ( label ) {
-                        var label = label.slice(0, -2);
+                        if ( !settings.tagMode ) var label = label.slice(0, -2);
                     } else {
                         var firstOpt = $(rootMenu).find('option').first();
                         if ( $(firstOpt).attr('data-html') ) {
